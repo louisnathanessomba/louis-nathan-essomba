@@ -3,7 +3,7 @@ title: "Louis Nathan Essomba"
 description: "Interdisciplinary research, projects, and reflections by Louis Nathan Essomba. Bridging science, ethics, and technology for a sustainable future."
 url: "https://louisnathanessomba.github.io"  # Replace with your GitHub Pages URL
 baseurl: ""  # Leave empty for GitHub Pages
-repository: "louisnathanessomba/louisnathanessomba"  # For GitHub metadata (optional)
+  # For GitHub metadata (optional)
 
 # ===== AUTHOR & SOCIAL =====
 author:
@@ -178,7 +178,6 @@ exclude:
   - LICENSE
   - .gitignore
   - .github/
-  - _templates/
   - assets/css/_sass/  # Exclude SASS partials
 
 # ===== CUSTOM VARIABLES =====
