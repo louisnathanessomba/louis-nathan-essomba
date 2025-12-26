@@ -1,0 +1,89 @@
+---
+layout: default
+---
+<head>
+  <!-- Existing head content -->
+  {% seo %}
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.excerpt }}">
+  <meta property="og:image" content="{{ site.url }}{{ page.featured_image }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+</head>
+
+<div class="container fade-in" data-section="foundations">
+  <article class="thesis-post">
+    <header class="thesis-header">
+      <h1>{{ page.title }}</h1>
+      <div class="thesis-meta">
+        <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+        {% if page.tags %}
+        <div class="tags mt-2">
+          🏷️ {{ page.tags | join: ", " }}
+        </div>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="thesis-content">
+      {{ content }}
+
+      <!-- Related Projects/Research -->
+      {% if page.related_project or page.related_research %}
+      <div class="related-content mt-3">
+        <h3>Related Content</h3>
+        <ul>
+          {% if page.related_project %}
+          <li>
+            🔗 <strong>Project:</strong>
+            <a href="{{ page.related_project | relative_url }}">
+              {{ page.related_project_title }}
+            </a>
+          </li>
+          {% endif %}
+          {% if page.related_research %}
+          <li>
+            📚 <strong>Research:</strong>
+            <a href="{{ page.related_research | relative_url }}">
+              {{ page.related_research_title }}
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <!-- Further Reading -->
+      {% if page.further_reading %}
+      <div class="further-reading mt-3">
+        <h3>Further Reading</h3>
+        <ul>
+          {% for item in page.further_reading %}
+          <li>
+            <a href="{{ item.url }}" target="_blank" rel="noopener">
+              {{ item.title }}
+            </a>
+            {% if item.description %}
+            <p>{{ item.description }}</p>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Navigation -->
+    <div class="post-navigation mt-4">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="prev-post">
+        ← Previous: {{ page.previous.title }}
+      </a>
+      {% endif %}
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="next-post">
+        Next: {{ page.next.title }} →
+      </a>
+      {% endif %}
+    </div>
+  </article>
+</div>
